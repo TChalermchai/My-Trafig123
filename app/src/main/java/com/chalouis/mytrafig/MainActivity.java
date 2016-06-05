@@ -1,6 +1,8 @@
 package com.chalouis.mytrafig;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     //Explicit หรือการประกาศตัวแปร
     private ListView trafficListView;
     private Button aboutMeButtom;
-
+    private String urlYoutubestring = "https://youtu.be/Ne1IwtXKzCQ";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,11 @@ public class MainActivity extends AppCompatActivity {
                 // Sound Effect
                 MediaPlayer mediaPlayer = MediaPlayer.create(getBaseContext(),R.raw.cat);
                 mediaPlayer.start();
+
+                //wed view
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(urlYoutubestring));
+                startActivity(intent);
 
             } //onclick
         });
